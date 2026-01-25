@@ -1,0 +1,18 @@
+# This is a basic workflow that is manually triggered
+
+name: Pull Guard
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      env:
+        required: false
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  pr-check:
+    uses: Matiduraan/pullguard-workflow/.github/workflows/pr-check.yml@v0.5
+    secrets: inherit
